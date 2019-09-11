@@ -1,0 +1,326 @@
+ul,
+ol {
+    padding: 0;
+    margin: 0
+}
+
+.codem-header {
+    max-width: 1300px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    width: 100px;
+}
+
+header {
+    padding: 0;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid #ededed;
+    background: #ffffff;
+}
+
+.header-list li {
+    display: inline-block;
+    padding: 20px;
+}
+
+.header-list li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.header-list.float-left li a:hover {
+    border-bottom: 2px solid red;
+    padding-bottom: 7px;
+}
+
+.header-logo {
+    padding: 10px;
+    float: right;
+}
+
+.header-list .register,
+.header-list .login,
+.header-list .cart,
+.header-list .menu {
+    border-left: 1px solid #ededed;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #191919;
+    font-size: 14px;
+}
+
+
+.footer {
+    left: 0;
+    bottom: 40px;
+    width: 100%;
+    background-color: none;
+}
+
+/*.footer li
+{
+font-size: 15px;
+font-family: 'Lato', sans-serif;
+list-style-type: none;
+padding :8px;
+}
+.foot
+{
+background:#f7f8f2;
+}
+.foot-list li
+{
+list-style-type: none;
+padding :8px;
+
+}
+*/
+
+.footer-list li {
+    list-style-type: none;
+    padding: 5px;
+
+}
+
+.footer-list li a {
+
+    font-family: 'Lato', sans-serif;
+    color: #000000;
+    text-decoration: none;
+}
+
+.footer-list fa {
+    border-radius: 50%;
+    margin: 10px 9px;
+}
+
+.foot1 {
+    background: white;
+}
+
+
+/*Features*/
+.features {
+    background-color: #f7f8f2;
+    padding: 15px 0;
+}
+
+.fa-icon {
+    width: 30px;
+    height: 40px;
+    float: left;
+    font-size: 24px;
+    color: red;
+}
+
+.features p {
+    margin-bottom: 5px;
+}
+
+/*main content*/
+.bodycontainer {
+    padding-left: 150px;
+}
+
+.body1 {
+    margin-top: 20px;
+    text-align: center;
+
+    list-style-type: none;
+
+}
+
+.body2 {
+
+    text-align: center;
+    list-style-type: none;
+    height: 100px;
+}
+
+.body3 {
+
+    text-align: center;
+
+}
+
+.body3 a:hover {
+    text-decoration: none;
+    border-bottom: 3px solid red;
+}
+
+.box {
+    border: #666666 solid 1px;
+    width: 300px;
+    padding: 5px 15px;
+}
+
+.block {
+    display: block;
+    width: 100%;
+    background-color: tomato;
+    color: white;
+    padding: 5px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.block1 {
+    display: block;
+    width: 100%;
+    background-color: tomato;
+    color: white;
+    padding: 10px 25px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.block2 {
+    display: block;
+    width: 25%;
+    background-color: lightgray;
+    color: white;
+    padding: 2px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.block2 p {
+    color: black;
+}
+
+.fp {
+    height: 180px;
+    text-decoration: underline;
+}
+
+.acc {
+    height: 180px;
+    text-decoration: underline;
+}
+
+.table li {
+    list-style-type: none;
+}
+
+.sample li {
+    list-style-type: "none";
+    display: inline-block;
+}
+
+.height {
+    height: 250px;
+}
+
+.height1 {
+    height: 310px;
+}
+
+.hr1 {
+
+    float: center;
+    width: 100%;
+}
+
+.class li {
+    display: inline-block;
+    list-style-type: "none";
+    padding: 5px 10px;
+}
+
+.mini-cart li {
+
+    list-style-type: "none";
+    display: inline-block;
+
+
+}
+
+.minicart-li2 {
+    color: #fc5c42;
+    font-style: bold;
+}
+
+.close-icon a {
+    color: gray;
+}
+
+
+.minicart-row1 {
+    margin-top: 20px;
+}
+
+.minicart-row2 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.minicart-row3 li {
+    color: #fc5c42;
+    font-style: bold;
+}
+
+.view-cart {
+    margin-top: 20px;
+    margin-bottom: 7px;
+
+
+}
+
+.check-out {
+    margin-bottom: 20px;
+}
+
+.check-out li {
+    width: 100%
+}
+
+.view-cart li {
+    width: 100%
+}
+
+.viewcart {
+    font-family: sans-serif;
+    display: block;
+
+    width: 100%;
+    height: 40;
+    background-color: #e4e4e4;
+    color: black;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    margin: auto;
+}
+
+.checkout {
+    display: block;
+    width: 100%;
+    height: 40;
+    background-color: #fc5c42;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    margin: auto;
+}
+
+.mini-cart {
+    float: right;
+    width: 80%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding: 5px;
+    box-shadow: 2px 4px 3px 1px rgba(0, 0, 0, 0.09);
+    border-bottom: 1px solid #ededed;
+    background: #ffffff;
+}
+

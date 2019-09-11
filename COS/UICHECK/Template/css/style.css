@@ -1,0 +1,196 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    line-height: 1;
+}
+
+a:hover,
+a:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #191919;
+    font-size: 14px;
+}
+
+a {
+    transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+a:focus,
+.btn:focus,
+a:active,
+.btn:active {
+    box-shadow: none;
+    outline: none;
+}
+
+ul,
+ol {
+    padding: 0;
+    margin: 0;
+}
+
+
+.codem-header {
+    max-width: 1300px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    width: 100px;
+    padding-right: 10px;
+    margin-right: 10px;
+
+}
+
+header {
+    padding: 0;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid #ededed;
+    background: #ffffff;
+}
+
+.header-list li {
+    display: inline-block;
+    padding: 20px;
+}
+
+.header-list li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.header-list.float-left li a:hover {
+    border-bottom: 2px solid red;
+    padding-bottom: 7px;
+}
+
+.header-list.float-right li a:hover {
+    border-bottom: 2px solid red;
+    padding-bottom: 7px;
+}
+
+.header-logo {
+    padding: 10px;
+    float: right;
+}
+
+.header-list .register,
+.header-list .login,
+.header-list .cart,
+.header-list .menu {
+    border-left: 2px solid #ededed;
+}
+
+
+.body1 {
+    text-align: center;
+    font-weight: bold;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 30px;
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+.body2 {
+    text-align: center;
+    list-style-type: none;
+    padding: 20px;
+}
+
+.features {
+    background-color: #f7f8f2;
+    padding: 30px 0;
+}
+
+.fa-icon {
+    width: 40px;
+    height: 40px;
+    float: left;
+    font-size: 24px;
+    color: red;
+}
+
+.features p {
+    margin-bottom: 5px;
+}
+
+.billing {
+    font-size: 24px;
+}
+
+.error {
+    color: #FF0000;
+}
+
+.checkbox p {
+    color: gray;
+}
+
+.space {
+    height: 280px;
+}
+
+.cart1 {
+    background-color: #f7f8f2;
+    padding: 20px;
+}
+.message_box{
+    width: 100%;
+}
+.Order {
+    padding-top: 20px;
+    font-size: 24px;
+}
+
+.block {
+    display: block;
+    width: 100%;
+    background-color: tomato;
+    color: white;
+    padding: 10px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.footer {
+
+    left: 0;
+    bottom: 40px;
+    width: 100%;
+    background-color: none;
+}
+
+.footer li {
+    list-style-type: none;
+    padding: 8px;
+}
+
+.footer-list li a {
+
+    color: #000000;
+    text-decoration: none;
+}
+
+.footer-list i {
+    background-color: darkgrey;
+    padding: 20px;
+    border-radius: 100%;
+    border: 1x solid tomato;
+    padding: 10px;
+}
+.footer-list i:hover{
+    background-color: tomato;
+}
