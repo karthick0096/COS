@@ -1,0 +1,152 @@
+.main {
+    background-color: black;
+    height: 1350px;
+    width: 120%
+    position:fixed;
+}
+
+.main li {
+    list-style-type: none;
+    color: white;
+    text-align: center;
+}
+
+.main li a {
+    color: white;
+    text-decoration: none;
+}
+
+.main1 p {
+
+
+    /*border-bottom-style: inset;*/
+    background: #f8f8f8;
+    border-bottom: 1px solid #e3e3e3;
+    border-top: 1px solid #e3e3e3;
+    padding: 24px;
+    font-size: 25px;
+}
+
+.block {
+    display: block;
+    float: right;
+    background-color: tomato;
+    color: white;
+    padding: 10px 30px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+button {
+    display: block;
+    float: right;
+    background-color: tomato;
+    color: white;
+    padding: 10px 30px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+.main2  {
+
+
+    /*border-bottom-style: inset;*/
+    background: #f8f8f8;
+    border-bottom: 1px solid #e3e3e3;
+    border-top: 1px solid #e3e3e3;
+    padding: 24px;
+   
+    
+}
+.main2 li
+{
+    width: 30px;
+  height: 20px;
+  border: 1px solid black;
+  background-color:darkgray;
+    float: right;
+   
+}
+.actionblock
+{
+    margin-left: 50px;
+    margin-top: 10px;
+}
+.actionblock1 li
+{
+    margin-left: 50px;
+    margin-top: 10px;
+    padding-right: 10px;
+    display: inline-block;
+    
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color:#ddd ;
+   color: black;
+}
+
+
+table {
+    border-collapse: collapse;
+    
+
+}
+
+table th {
+   color: white;
+    border: 1px solid black;
+    border-color: darkgray;
+     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+   
+}
+
+table td {
+    border: 1px dotted black;
+    color: black;
+    border-color: darkgray;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-style: normal;
+    font-weight: 400;
+   /* border-color: darkgray;    
+    border-left: .1rem dashed #d6d6d6;
+    border-right: .1rem dashed #d6d6d6;
+    color: #303030;
+    padding: 1rem 1rem;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;*/
+}
+
+.hgt{
+    height: 475px;
+}
+
+.foot li{
+    
+    color:darkgray;
+    display: inline-block;
+}
+
+.foot{
+     background: #f8f8f8;
+    border-bottom: 1px solid #e3e3e3;
+    border-top: 1px solid #e3e3e3;
+    padding: 24px;
+    font-size: 12px;
+   
+}
