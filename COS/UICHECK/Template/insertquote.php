@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root";
-$password = "pass2word";
+$password = "kuttyammu";
 $dbname = "quote";
 
 // Create connection
@@ -11,7 +11,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Quoteid,Productimage, Productname, Productprice,Totalprice FROM quotetable";
+$sql = "SELECT Quoteid, Productname, Productprice,Totalprice FROM quotetable";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -20,11 +20,9 @@ if (mysqli_num_rows($result) > 0) {
         $minipname[]=$row["Productname"];
         $minipprice[]=$row["Productprice"];
         $quoteid[]=$row["Quoteid"];
-        $minipimage[]=$row["Productimage"];
+        //$minipimage[]=$row["Productimage"];
         $totprice=$row["Totalprice"];
-        
     }
-   
 } else {
     echo "0 results";
 }

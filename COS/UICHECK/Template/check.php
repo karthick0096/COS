@@ -1,7 +1,7 @@
 <?php
-$servername = "127.0.0.1";
+$servername = "localhost";
 $username = "root";
-$password = "kuttyammu";
+$password = "pass2word";
 $dbname = "checkout";
 
 // Create connection

@@ -11,7 +11,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Quoteid,Productimage, Productname, Productprice,Totalprice FROM quotetable";
+$sql = "SELECT Quoteid, Productname, Productprice,Totalprice FROM quotetable";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -22,9 +22,7 @@ if (mysqli_num_rows($result) > 0) {
         $quoteid[]=$row["Quoteid"];
         $minipimage[]=$row["Productimage"];
         $totprice=$row["Totalprice"];
-        
     }
-   
 } else {
     echo "0 results";
 }
