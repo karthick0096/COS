@@ -1,4 +1,6 @@
-
+<?php include 'quotecall.php';?>
+<?php include 'insertquote.php';?>
+<?php $si=sizeof($quoteid);?>
 <?php session_start();
 
  if(!isset($_SESSION['user']))
@@ -174,42 +176,54 @@
              </div>
 
              <div class="col-md-3">
-                 <div class="cart1">
-                     <div class="container">
+                <div class="cart1">
+                    <div class="row">
+                        <div class="col-md-12">
 
-                         <div class="Order">
-                             <p align="left"><b>Your Order</b></p>
-                         </div>
-                         <hr>
+                            <div class="Order">
+                                <p align="left"><b>Your Order</b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>
 
-                         <form>
+                    <!--form-->
 
-                             <div class="form-row">
-                                 <div class="form-group col-9">
-
-
-                                     <label for="Products"><b>Products</b> </label>
-                                 </div>
-
-                                 <div class="form-group col-3">
-                                     <label for="Total"><b>Total </b></label>
-                                 </div>
+                    <div class="row">
 
 
-                                 <div class="form-group col-9">
+                        <div class="col-md-9">
 
 
-                                     <label for="Products">Leather shoper bag</label>
-                                 </div>
+                            <label for="Products"><b>Products</b> </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="Total"><b>Total </b></label>
+                        </div>
+                    </div>
 
-                                 <div class="form-group col-3">
-                                     <label for="Total" style="color:tomato"> $75.59</label>
-                                 </div>
+                    <div class="row">
+                        <?php for($quoteid=0;$quoteid<$si;$quoteid++){ ?>
+
+                        <div class="col-md-8">
 
 
+                            <label for="Products"><?php echo "$minipname[$quoteid]"?></label>
+                        </div>
 
+                        <div class="col-md-4">
 
-                                 <div class="form-group col-9">
+                            <label for="Total" style="color:tomato"> <?php echo "$minipprice[$quoteid]"?></label>
+
+                        </div>
+                        <?php } ?>
+                    </div>
+
+                    <!--div class="form-group col-9">
 
 
                                      <label for="Products">Pocket linen shirt </label>
@@ -229,53 +243,59 @@
                                  <div class="form-group col-3">
                                      <label for="Total" style="color:tomato">$53.99</label>
 
-                                 </div>
-                                 <div class="form-group col-12">
-                                     <hr>
-                                 </div>
-
-                                 <div class="form-group col-9">
-
-
-                                     <label for="Products">Subtotal </label>
-                                 </div>
-
-                                 <div class="form-group col-3">
-                                     <label for="Total" style="color:tomato">$750.99 </label>
-                                 </div>
-                                 <div class="form-group col-12">
-                                     <hr>
-                                 </div>
-
-                                 <div class="form-group col-9">
-                                     <label for="Products">Total </label>
-                                 </div>
-
-                                 <div class="form-group col-3">
-                                     <label for="Total" style="color:tomato">$750.99 </label>
-                                 </div>
-
-                                 <div class="checkbox">
-                                     <input type="checkbox" name="create an account"><label> Create an account ?</label><br>
-                                     <p><b>The lorem ipsum text is usually a section of a Latin text by Cicero with words altered,
-                                             added and removed to make it nonsensical.[1] </b></p>
-                                 </div>
-
-                                 <div class="checkbox">
-                                     <input type="checkbox" name="create an account"><label>Stripe payment </label><br>
-
-                                 </div>
+                                 </div-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
 
 
-                                 <button type="button" class="block" id="submit" >Place Order</button>
+                            <label for="Products">Subtotal </label>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="Total" style="color:tomato"><?php echo "$$totprice"?> </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <label for="Products">Total </label>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="Total" style="color:tomato"><?php echo "$$totprice"?> </label>
+                        </div>
+
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="create an account"><label> Create an account ?</label><br>
+                        <p><b>The lorem ipsum text is usually a section of a Latin text by Cicero with words altered,
+                                added and removed to make it nonsensical.[1] </b></p>
+                    </div>
+
+                    <div class="checkbox">
+                        <input type="checkbox" name="create an account"><label>Stripe payment </label><br>
+
+                    </div>
+
+
+                    <button type="button" class="block" id="submit">Place Order</button>
 
 
 
-                             </div>
 
-                         </form>
-                     </div>
-                 </div>
+
+                    <!--/form-->
+                </div>
              </div>
          </div>
      </div>

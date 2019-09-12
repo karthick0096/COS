@@ -1,15 +1,10 @@
-<?php 
-
-include 'catalogdb.php';?>
-
-<?php include 'quote.php';?>
-<?php include 'insertquote.php';?>
-
-<?php include 'quotecall.php';?>
 <?php
+session_start();
+
 
 //$_SESSION['varname'] = $lvalue;
-session_start();
+//
+
 
  if(!isset($_SESSION['user']))
         {
@@ -17,11 +12,20 @@ session_start();
         }   
         $name=$_SESSION['user'];
 
-$si=sizeof($quoteid);
-
 ?>
 
 
+
+
+<?php include 'catalogdb.php';?>
+
+<?php include 'quote.php';?>
+<?php include 'insertquote.php';?>
+
+<?php include 'quotecall.php';?>
+
+
+<?php $si=sizeof($quoteid);?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -114,7 +118,7 @@ function myFunction() {
                                         <a href="#"><img src="images/new-arrivals-03.jpg" width="83px" height="115px" /></a>
                                     </div>
 
-                                </div--!>
+                                </div-->
 
                                 <div class="col-md-4">
                                   <input type="hidden" name="pimage" value="<?php echo "$j[$id]"?>" > <a href="#"><?php echo "<img src='../catalog/images/".$j[$id]."' width='100%' >";?></a></input>
@@ -275,7 +279,7 @@ function myFunction() {
                         </div>
                         <div class="col-md-3">
                             <div class="minicart-row2">
-                                <li class="close-icon"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></li>
+                                <li class="close-icon"><a href="mini_close.php"><i class="fa fa-times" aria-hidden="true"></i></a></li>
                             </div>
                         </div>
 

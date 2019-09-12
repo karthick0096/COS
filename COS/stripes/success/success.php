@@ -1,13 +1,16 @@
-
- <?php session_start();
+<?php session_start();
 
  if(!isset($_SESSION['user']))
         {
-                 echo "<script> location.href='../login.php'; </script>";
+                 echo "<script> location.href='../../login.php'; </script>";
         } 
-               $name=$_SESSION['user'];
+              $name=$_SESSION['user'];
 
 ?>
+<?php include 'insertquote.php';?>
+<?php include 'quotecall.php';?>
+<?php $li=sizeof($id);?>
+<?php $si=sizeof($quoteid);?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,26 +26,25 @@
 </head>
 
 <body>
-<form method="post">
     <header>
         
             <div class="row">
                 <div class="col-xl-2 col-md-2">
                     <div class="header-logo">
-                        <a href="http://localhost/COS/catalog/indexdum.php"><img src="images/logo.png" class="img-fluid logo" alt="logo" title="Codem Online Store" ></a>
+                        <a href="index.html"><img src="images/logo.png" class="img-fluid logo" alt="logo" title="Codem Online Store" ></a>
                     </div>
 
                 </div>
                 <div class="col-xl-10 col-md-10">
                     <div class="header-content">
                         <ul class="header-list float-left">
-                            <li><a href="http://localhost/COS/catalog/indexdum.php">Home</a></li>
-                            <li><a href="http://localhost/COS/catalog/indexdum.php">Shop</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Shop</a></li>
                         </ul>
                         <ul class="header-list float-right">
-                         <li class="register"><a href="#"><?php echo "$name"?>'s Account</a></li>
+                            <li class="register"><a href="#"><?php echo "$name"?>'s Account</a></li>
 						<li class="login"><a href="../../logout.php">Logout</a></li>
-                            <li class=""><a href="#"><i class=""></i></a></li>
+                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             <li class="menu"><a href="#"><i class="fa fa-bars"></i></a></li>
                         </ul>
                     
@@ -80,6 +82,7 @@
 <hr>
 
 <div class="items">
+    <div class="row">
 
 <div class="col-xs-3 ">
 <ul class="items-list float-left">
@@ -95,7 +98,7 @@
 <li>Total</li>
 </ul>
 </div>
-
+</div>
 </div>
 <br>
 <hr>
@@ -126,14 +129,16 @@
 
 
 <div class="items">
-
+<div class="row">
+    <?php for($quoteid=0;$quoteid<$si;$quoteid++){ ?>
+    
 <div class="col-xs-3 ">
 <ul class="items-list float-left">
-<li><img src="images/or1.jpg" width="55px" height="70px"/></li>
+<li><?php echo "$minipimage[$quoteid]"?>"</li>
 </ul>
 
-<li><b>Sigma Beauty</b></li>
-<li style="color:Lightgray">Best of Sigma Brush Set</li>
+
+<li style="color:Lightgray"><?php echo "$minipname[$quoteid]"?></li>
 
 </div>
 
@@ -141,14 +146,17 @@
 <div class="col-xs-3 col-xs-3 col-xs-3 ">
 <ul class="items-list float-right">
 <li>1</li>
-<li>$26.90</li>
-<li>$26.90</li>
+<li><?php echo "$minipprice[$quoteid]"?></li>
+<li><?php echo "$minipprice[$quoteid]"?></li>
 </ul>
 </div>
+    <?php } ?>
 <br><hr>
+    
 </div>
+    </div>
 
-<div class="items">
+<!--div class="items">
 
 <div class="col-xs-3 ">
 <ul class="items-list float-left">
@@ -219,14 +227,14 @@
 </div>
 <br>
 <hr color="black" size="40">
-</div>
+</div-->
 
 
 <div class="items">
 <div class="col-xs-8 col-xs-3 ">
 <ul class="items-list float-right">
 <li>Cart Subtotal</li>
-<li>$26.90</li>
+<li><?php echo "$$totprice"?></li>
 </ul>
 </div>
 <br><hr>
@@ -258,7 +266,7 @@
 <div class="col-xs-8 col-xs-3 ">
 <ul class="items-list float-right">
 <li><b>Grand Total</b></li>
-<li><b>$26.90</b></li>
+<li><b><?php echo "$$totprice"?></b></li>
 </ul>
 </div>
 <br><hr color="black" size="40">
@@ -268,10 +276,12 @@
 
 </div>
 <div class="col-md-4">
-<P >SHIP TO</p>
+    <form method="post">
+<P>SHIP TO</p>
 <br>
 
 <div class="address">
+    <?php for($id=0;$id<$li;$id++){ ?>
 <!--<table align="left">
 <tr><td padding-left="1.5em"><b>Martin Thomas</b></td></tr>
 <tr><td></td</tr>
@@ -282,18 +292,24 @@
 <tr><td>5285 Phillippines</td></tr>
 <tr><td></td</tr>
 </table>-->
-<p>Martin Thomas</p>
-<p># 341 Castle Bantagas</p>
-<p>Calaca barangay Barangay(3 pob)</p>
-<p>5285 Phillippines</p>
-
+<p><?php echo "$firstname[$id]"?></p><p><?php echo "$lastname[$id]"?></p>
+<p><?php echo "$country[$id]"?></p>
+<p><?php echo "$address[$id]"?></p>
+<p><?php echo "$town[$id]"?></p>
+    <p><?php echo "$state[$id]"?></p>
+    <p><?php echo "$postcode[$id]"?></p>
+    <p><?php echo "$phone[$id]"?></p>
+    <p><?php echo "$email[$id]"?></p>
+   
+    
+ <?php } ?>
 </div>
 
 <br>
 <div>
-<button type="submit" class="btn-block" formaction="http://localhost/COS/catalog/indexdum.php">Continue Shopping</button>
+<button type="submit"formaction="http://localhost/COS/catalog/indexdum.php" class="btn-block">Continue Shopping</button>
 </div>
-
+</form>
 </div>
 </div>
 
@@ -393,6 +409,5 @@
 
 </div>
 </footer>
-</form>
     </body>
     </html>
