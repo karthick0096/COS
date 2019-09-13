@@ -17,7 +17,7 @@
     <div class="row">
       <div class="col-md-1">
 
-            <div class="main">
+            <div class="main" style="height:100%">
                 <li><a href="http://localhost/admin/product/admin_product/fetch1.php"><i class="fa fa-cube"></i></a></li>
                 <li><a href="http://localhost/admin/product/admin_product/fetch1.php">Catalog</a></li>
                 <br>

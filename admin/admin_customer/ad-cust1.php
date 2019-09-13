@@ -11,12 +11,18 @@ if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT * FROM customer";
-$result = $conn->query($sql);
+$limit =10;  
+if (isset($_GET["page"])) 
+{ $page  = $_GET["page"]; } 
+else { $page=1; };  
+$start_from = ($page-1) * $limit;  
+  
+$sql = "SELECT * FROM customer ORDER BY ID ASC LIMIT $start_from, $limit";  
+$rs_result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+if ($rs_result->num_rows > 0) {
 // output data of each row
-while($row = $result->fetch_assoc()) {
+while($row = $rs_result->fetch_assoc()) {
     $id[]=$row["ID"];
     $name[]=$row["name"];
      $email[]=$row["email_address"];
@@ -24,6 +30,7 @@ while($row = $result->fetch_assoc()) {
      
    
 }
+    
     
    
 } else {
@@ -33,6 +40,7 @@ $conn->close();
 $si=sizeof($id);
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +61,7 @@ $si=sizeof($id);
     <div class="row">
         <div class="col-md-1">
 
-            <div class="main">
+            <div class="main" style="height:100%">
                 <li><a href="http://localhost/admin/product/admin_product/fetch1.php" style="font-size: 15px;"><i class="fa fa-cube"></i></a></li>
                 <li><a href="http://localhost/admin/product/admin_product/fetch1.php">Catalog</a></li>
                 <br>
@@ -103,7 +111,7 @@ $si=sizeof($id);
                             <a class="dropdown-item" href="#">Edit</a>
                         </div>
                     </div>
-                    <div class="actionblock1">
+                  <!--  <div class="actionblock1">
 
                         <a href="#" class="previous" style="margin-left: 30px">&#8249; </a>
 
@@ -111,7 +119,38 @@ $si=sizeof($id);
                         <a href="#" class="next"  style="margin-right: 10px"> &#8250;</a>
 
 
-                    </div>
+                    </div>-->
+                                   <div class="actionblock1">
+                        <?php 
+    $servername = "localhost";
+    $username = "root";
+    $password = "pass2word";
+    $dbname = "sample";
+
+// Create connection    
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+} 
+
+    
+    
+$sql = "SELECT COUNT(id) FROM customer";  
+$rs_result = mysqli_query($conn, $sql);  
+$row = mysqli_fetch_row($rs_result);  
+$total_records = $row[0];  
+$total_pages = ceil($total_records / $limit);  
+$pagLink = "<div class=' pagination float-right'>";  
+for ($i=1; $i<=$total_pages; $i++) {  
+             $pagLink .= "<a href='ad-cust1.php?page=".$i."'>".$i."</a>";
+  
+};  
+echo $pagLink . "</div>";  
+?>
+
+
+
 
                 </div>
             </div>
