@@ -1,35 +1,14 @@
-<?php
-session_start();
-
-
-//$_SESSION['varname'] = $lvalue;
-//
-
-
- if(!isset($_SESSION['user']))
-        {
-                 echo "<script> location.href='../login.php'; </script>";
-        }   
-        $name=$_SESSION['user'];
-
-?>
-
-
-
-
 <?php include 'catalogdb.php';?>
-
 <?php include 'quote.php';?>
 <?php include 'insertquote.php';?>
+<?php
+//session_start();
+$name=$_SESSION['user'];
+$cid=$_SESSION['id'];
 
-<?php include 'quotecall.php';?>
-
-
-<?php $si=sizeof($quoteid);?>
-
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,9 +16,9 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <script type="text/javascript" src="js/respond.js"></script>
     <script src="https://use.fontawesome.com/156c9e7818.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <link rel="stylesheet" type="text/css" href="css/pdp.css">
-
-
 </head>
 <script>
 function myFunction() {
@@ -51,7 +30,6 @@ function myFunction() {
   }
 }
 </script>
-
 <body>
 <form method="post">
     <header>
@@ -59,20 +37,22 @@ function myFunction() {
         <div class="row">
             <div class="col-xl-2 col-md-2">
                 <div class="header-logo">
-                    <a href="http://localhost/COS/catalog/indexdum.php"><img src="images/logo.png" class="img-fluid logo" alt="logo" title="Codem Online Store"></a>
+                    <a href="../catalog/indexdum.php"><img src="images/logo.png" class="img-fluid logo" alt="logo" title="Codem Online Store"></a>
                 </div>
 
             </div>
             <div class="col-xl-10 col-md-10">
                 <div class="header-content">
                     <ul class="header-list float-left">
-                        <li><a href="http://localhost/COS/catalog/indexdum.php">Home</a></li>
-                        <li><a href="http://localhost/COS/catalog/indexdum.php">Shop</a></li>
+                        <li><a href="../catalog/indexdum.php">Home</a></li>
+                        <li><a href="../catalog/indexdum.php">Shop</a></li>
                     </ul>
                     <ul class="header-list float-right">
-                     <li class="register"><a href="#"><?php echo "$name"?>'s Account</a></li>
-<li class="login"><a href="../logout.php">Logout</a></li>
-                        <li class="cart"><a href="#"><i class="fa fa-shopping-cart" onclick="myFunction()"></i></a></li>
+                        <li class="register"><a href="#"><?php echo $name?>'s account</a></li>
+                        <li class="login"><a href="../logout.php">Logout</a></li>
+                       
+                        <li class="cart"><a href="#"><i class="fa fa-shopping-cart bdg" nbr=<?php echo $count ?>  style="font-size:20px" onclick="myFunction()"></i></a></li>
+                        
                         <li class="menu"><a href="#"><i class="fa fa-bars"></i></a></li>
                     </ul>
 
@@ -82,7 +62,6 @@ function myFunction() {
 
     </header>
 
-    <!--main content-->
 
 
     <section class="main pdp">
@@ -94,10 +73,8 @@ function myFunction() {
                 
                     <div class="row">
                         <div class="bodycontainer">
-                        <div class="body1">
-                            <!--<div class="row">
-<div class="">-->
-                            <p style="text-align=center;margin-left=90px;font-size: 30px"><b>Product Details</b></p>
+                        <div class="body1">  
+                          <p style="text-align=center;margin-left=90px;font-size: 30px"><b>Product Details</b></p>
                             <p><span style="color:black">Home</span><span style="color:#C0C0C0">-Shop</span></p>
                         </div>
   
@@ -118,10 +95,10 @@ function myFunction() {
                                         <a href="#"><img src="images/new-arrivals-03.jpg" width="83px" height="115px" /></a>
                                     </div>
 
-                                </div-->
+                                </div!-->
 
                                 <div class="col-md-4">
-                                  <input type="hidden" name="pimage" value="<?php echo "$j[$id]"?>" > <a href="#"><?php echo "<img src='../catalog/images/".$j[$id]."' width='100%' >";?></a></input>
+                                  <input type="hidden" name="pimage" value="<?php echo "$j[$id]"?>" > <a href="#"><?php echo "<img src='../catalog/images/".$j[$id]."' width='100%' >";?></a>
                                 </div>
 
 
@@ -132,12 +109,12 @@ function myFunction() {
 
                                             <tr>
                                                 <td>
-                                                    <input type="hidden" name="pname" id="ppname" value="<?php echo "$productname[$id]"?>"><p style="font-size:30px;"><b><?php echo "$productname[$id]"?></b></p></input>
+                                                    <input type="hidden" name="pname" id="ppname" value="<?php echo "$productname[$id]"?>"><p style="font-size:30px;"><b><?php echo "$productname[$id]"?></b></p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input type="hidden" name="pprice" id="ppprice" value="<?php echo "$productprice[$id]"?>"> <p style="color:tomato; font-size:20px;"><?php echo "$$productprice[$id]"?></p></input>
+                                                    <input type="hidden" name="pprice" id="ppprice" value="<?php echo "$productprice[$id]"?>"> <p style="color:tomato; font-size:20px;"><?php echo "$$productprice[$id]"?></p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -171,10 +148,7 @@ function myFunction() {
                                         </div>
 
                                         <div class="height1"></div>
-                                        <div class="hr1">
-                                            <hr>
-
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -272,14 +246,14 @@ function myFunction() {
                             <div class="minicart-row2">
                             
 
-                                <li class="minicart-li1 text-left"><?php echo "$minipname[$quoteid]"?></li>
+                                <input type="hidden" name="minicartid" value="<?php echo $qid[$quoteid] ?>"><li class="minicart-li1 text-left"><?php echo "$minipname[$quoteid]"?></li>
                                 <li class="minicart-li2 text-left"><?php echo "$$minipprice[$quoteid]"?></li>
                             
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="minicart-row2">
-                                <li class="close-icon"><a href="mini_close.php"><i class="fa fa-times" aria-hidden="true"></i></a></li>
+                                <button type="submit" name='delete' formaction="delete.php"> <li class="close-icon"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></li></button>
                             </div>
                         </div>
 
@@ -297,7 +271,7 @@ function myFunction() {
                         </div>
                         <div class="col-md-4">
                             <div class="minicart-row3">
-                                <li><?php echo "$$totprice"?></li>
+                                <li><?php echo "$$tp"?></li>
                             </div>
                         </div>
                     </div>
@@ -306,7 +280,7 @@ function myFunction() {
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <div class="check-out">
-                             <a href=../UICHECK/Template/index.php>   <li><button type="button" class="checkout">CHECK OUT</button></li>
+                                <a href=../UICHECK/Template/index.php>   <li><button type="button" class="checkout">CHECK OUT</button></li></a>
                             </div>
                         </div>
                     </div>

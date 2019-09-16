@@ -221,7 +221,7 @@ padding :8px;
 }
 
 .height1 {
-    height: 310px;
+    height: 0px;
 }
 
 .hr1 {
@@ -323,4 +323,35 @@ padding :8px;
     border-bottom: 1px solid #ededed;
     background: #ffffff;
 }
+.fa-shopping-cart[data-count]:after{
+  position:absolute;
+  right:0%;
+  top:1%;
+  content: attr(data-count);
+  font-size:10%;
+  padding:.6em;
+  border-radius:999px;
+  line-height:.75em;
+  color: white;
+  background:rgba(255,0,0,.85);
+  text-align:center;
+  min-width:2em;
+  font-weight:bold;
+}
+.bdg{
+    position: relative;
+}
+
+.bdg[nbr]:after{
+    content: attr(nbr);color:#ffffff;font-weight: bold;font-family: 'NotoSans', sans-serif !important;font-size: 10px;text-align: center;line-height: 15px;
+    position: absolute;
+    background: #f095cd;
+    width: 15px;
+    height: 15px;
+    top:-5px;
+    right: -10px;
+    border-radius: 50%;
+    box-shadow: 0 0 1px #33333
+    
+} 
 

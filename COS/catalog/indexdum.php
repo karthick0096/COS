@@ -1,63 +1,68 @@
-<?php session_start();
 
- if(!isset($_SESSION['user']))
-        {
-                 echo "<script> location.href='../login.php'; </script>";
-        } 
+<?php
+session_start();
+$name=$_SESSION['user'];
+$cid=$_SESSION['id'];
+
+include 'dbcat.php';   
+
 $servername = "localhost";
 $username = "root";
 $password = "pass2word";
-$dbname = "sample";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT ID, Name, Price,Thumbnail FROM products";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-// output data of each row
-while($row = $result->fetch_assoc()) {
-$productnames[]=$row["Name"];
-$productprice[]=$row["Price"];
-$id[]=$row["ID"];
-$j[]=$row['Thumbnail'];
-
-
+$dbname = "quote";
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
+$sql = "SELECT customerid, Quoteid,Productimage, Productname, Productprice FROM quotetable where customerid ='$cid'";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+        $custid[]=$row["customerid"];
+        $minipname[]=$row["Productname"];
+        $minipprice[]=$row["Productprice"];
+        $quoteid[]=$row["Quoteid"];
+        $qid[]=$row["Quoteid"];
+        $minipimage[]=$row["Productimage"];
+        $pi=sizeof($quoteid);
+        $tp=array_sum($minipprice);
+        
+$count=count($quoteid);
+    }
 } else {
-echo "0 results";
+
+    $count=0;
+    $pi=0;
+    $tp=0;
+    
 }
-$conn->close();
+mysqli_close($conn);
+
 
 $si=sizeof($id);
-
-//session_start();
-//var_dump($_SESSION);
-        
-        $name=$_SESSION['user'];
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Required meta tags -->
 <title>Codem Online Store</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!-- fonts -->
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+<script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
 <body>
 <form method="post">
 <header>
@@ -65,9 +70,8 @@ $si=sizeof($id);
 <div class="row">
 <div class="col-xl-2 col-md-2">
 <div class="header-logo">
-<a href="http://localhost/COS/catalog/indexdum.php"><img src="images/logo.png" class="img-fluid logo" alt="logo" title="Codem Online Store"></a>
+<a href="#"><img src="images/logo.png" class="img-fluid logo" alt="logo" title="Codem Online Store"></a>
 </div>
-
 </div>
 <div class="col-xl-10 col-md-10">
 <div class="header-content">
@@ -76,9 +80,9 @@ $si=sizeof($id);
 <li><a href="http://localhost/COS/catalog/indexdum.php">Shop</a></li>
 </ul>
 <ul class="header-list float-right">
-<li class="register"><a href="#"><?php echo "$name"?>'s Account</a></li>
+<li class="register"><a href="#"><?php echo $name?>'s Account</a></li>
 <li class="login"><a href="../logout.php">Logout</a></li>
-<li class="cart"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+<li class="cart"><a href="#"><i class="fa fa-shopping-cart bdg" nbr=<?php echo $count ?>  style="font-size:20px" onclick="myFunction()"></i></a></li>
 <li class="menu"><a href="#"><i class="fa fa-bars"></i></a></li>
 </ul> 
 </div>
@@ -86,6 +90,8 @@ $si=sizeof($id);
 </div>
 </div>
 </header>
+<div class="row">
+<div class="col-md-9">
 <section class="main-title">
 <div class="container">
 <h3>Shop Default</h3>
@@ -112,14 +118,60 @@ width: inherit;">
 </div>
 <?php } ?>
 </div> 
-
-
 </div> 
-
 </section>
-
-
-
+</div>
+<div class="col-md-3">      
+<div class="container">
+   
+<div class="mini-cart" id="myDIV" style="display: none;" >
+ <div class="row" style="overflow-y: scroll; height:200px;">
+<?php for($quoteid=0;$quoteid<$pi;$quoteid++){ ?>
+<div class="col-md-4">
+<div class="minicart-row2">
+<li><?php echo "<img src='../catalog/images/".$minipimage[$quoteid]."' width='70%' height='70%' >";?></li>
+</div>
+</div>                         
+<div class="col-md-5">                         
+<div class="minicart-row2">
+  <input type="hidden" name="minicartid" value="<?php echo $qid[$quoteid]; ?>">
+    <li class="minicart-li1 text-left"><?php echo "$minipname[$quoteid]"?></li>
+<li class="minicart-li2 text-left"><?php echo "$$minipprice[$quoteid]"?></li>                            
+</div>
+</div>
+<div class="col-md-3">
+<div class="minicart-row2">
+    <button type="submit" name='delete' formaction="delete.php"><li class="close-icon"><a href="#"><i class="fa fa-times" aria-hidden="true" ></i></a></li></button>
+</div>
+</div>
+<?php  }?>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-4">
+<div class="minicart-row3">
+<li>TOTAL:</li>
+</div>
+</div>
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+<div class="minicart-row3">
+<li><?php echo "$$tp"?></li>
+</div>
+</div>
+</div>                   
+<div class="row">
+<div class="col-md-12 text-center">
+<div class="check-out">
+<a href=../UICHECK/Template/index.php>   <li><button type="button" class="checkout">CHECK OUT</button></li></a>
+</div>
+</div>
+</div>
+</div>
+</div>                                
+</div>
+</div>
 <section class="features">
 <div class="codem-container">
 <div class="row">
@@ -144,9 +196,7 @@ width: inherit;">
 <p>Dedicated support</p>
 </div>
 </div>
-
 </div>
-
 </section>
 <footer>
 <div class="codem-footer">
