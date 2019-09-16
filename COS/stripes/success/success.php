@@ -7,7 +7,28 @@
               $name=$_SESSION['user'];
 
 ?>
+<?php require_once('../config.php');?>
 <?php include 'insertquote.php';?>
+
+<?php
+  
+
+  $token  = $_POST['stripeToken'];
+  $email  = $_POST['stripeEmail'];
+
+  $customer = \Stripe\Customer::create([
+      'email' => $email,
+      'source'  => $token,
+  ]);
+
+  $charge = \Stripe\Charge::create([
+      'customer' => $customer->id,
+      'amount'   => $tp*100,
+      'currency' => 'usd',
+  ]);
+
+ 
+?>
 
 
 
