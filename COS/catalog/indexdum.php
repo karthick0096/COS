@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $name=$_SESSION['user'];
@@ -145,8 +146,8 @@ width: inherit;">
 </div>
 <?php  }?>
 </div>
-<hr>
-<div class="row">
+<hr><?php if($count!=0){?> 
+<div class="row" id="total">
 <div class="col-md-4">
 <div class="minicart-row3">
 <li>TOTAL:</li>
@@ -159,7 +160,12 @@ width: inherit;">
 <li><?php echo "$$tp"?></li>
 </div>
 </div>
-</div>                   
+</div> <?php } 
+    else {?>  
+    <script type="text/javascript">document.getElementById('total').style.display = 'none';</script>
+    <li>You have no items in the cart</li>
+<?php }?>
+    <?php if($count!=0){?>                  
 <div class="row">
 <div class="col-md-12 text-center">
 <div class="check-out">
@@ -167,6 +173,10 @@ width: inherit;">
 </div>
 </div>
 </div>
+     <?php } 
+    else {?>  
+    <script type="text/javascript">document.getElementById('checkout').style.display = 'none';</script>
+<?php }?>
 </div>
 </div>                                
 </div>

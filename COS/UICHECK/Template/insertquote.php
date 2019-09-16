@@ -1,4 +1,5 @@
 <?php
+$cid=$_SESSION['id'];
 $servername = "localhost";
 $username = "root";
 $password = "pass2word";
@@ -11,7 +12,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Quoteid, Productname, Productprice,Totalprice FROM quotetable";
+$sql = "SELECT Quoteid, Productname, Productprice FROM quotetable where customerid ='$cid'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -21,10 +22,14 @@ if (mysqli_num_rows($result) > 0) {
         $minipprice[]=$row["Productprice"];
         $quoteid[]=$row["Quoteid"];
         //$minipimage[]=$row["Productimage"];
-        $totprice=$row["Totalprice"];
+        $tp=array_sum($minipprice);
+              $si=sizeof($quoteid);
+  
     }
 } else {
-    echo "0 results";
+    $si=0;
+    $quoteid=0;
+    $tp=0;
 }
 
 mysqli_close($conn);

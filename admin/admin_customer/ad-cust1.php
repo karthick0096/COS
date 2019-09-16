@@ -17,13 +17,13 @@ if (isset($_GET["page"]))
 else { $page=1; };  
 $start_from = ($page-1) * $limit;  
   
-$sql = "SELECT * FROM customer ORDER BY ID ASC LIMIT $start_from, $limit";  
+$sql = "SELECT * FROM customer ORDER BY customerid ASC LIMIT $start_from, $limit";  
 $rs_result = $conn->query($sql);
 
 if ($rs_result->num_rows > 0) {
 // output data of each row
 while($row = $rs_result->fetch_assoc()) {
-    $id[]=$row["ID"];
+    $id[]=$row["customerid"];
     $name[]=$row["name"];
      $email[]=$row["email_address"];
      $mobile[]=$row["mobile_no"];
@@ -136,7 +136,7 @@ die("Connection failed: " . $conn->connect_error);
 
     
     
-$sql = "SELECT COUNT(id) FROM customer";  
+$sql = "SELECT COUNT(customerid) FROM customer";  
 $rs_result = mysqli_query($conn, $sql);  
 $row = mysqli_fetch_row($rs_result);  
 $total_records = $row[0];  

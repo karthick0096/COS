@@ -201,7 +201,7 @@ if( isset($_POST['username']) and isset($_POST['password']) ) {
 		}
 		else {
 	        $_SESSION['user']=$row['name'];
-	        
+	         $_SESSION['id']=$row['customerid'];
 	       // var_dump($_SESSION);
 		//	header('location: account.php');
 			#echo "successfully login";

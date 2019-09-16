@@ -1,4 +1,6 @@
 <?php
+session_start();
+$cid=$_SESSION['id'];
 $servername = "localhost";
 $username = "root";
 $password = "pass2word";
@@ -22,7 +24,7 @@ $address = $_POST['address'];
     $email = $_POST['email'];
 
 
-$sql = "INSERT INTO Billingaddress (Firstname, Lastname,country,address,Town,state,postcode,Phone,Email )VALUES ('$firstname', '$lastname', '$country','$address', '$town','$state' ,'$postcode' ,'$phone','$email')";
+$sql = "INSERT INTO Billingaddress (Firstname, Lastname,country,address,Town,state,postcode,Phone,Email,customerid )VALUES ('$firstname', '$lastname', '$country','$address', '$town','$state' ,'$postcode' ,'$phone','$email','$cid')";
 
 if ($conn1->query($sql) === TRUE) {
     echo"Address added";

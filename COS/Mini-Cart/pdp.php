@@ -259,7 +259,7 @@ function myFunction() {
 
  <?php } ?>
                     </div>
-                    <hr>
+                    <hr><?php if($count!=0){?> 
                     <div class="row">
 
                         <div class="col-md-4">
@@ -274,9 +274,13 @@ function myFunction() {
                                 <li><?php echo "$$tp"?></li>
                             </div>
                         </div>
-                    </div>
+                    </div><?php } 
+    else {?>  
+    <script type="text/javascript">document.getElementById('total').style.display = 'none';
+                    </script> <li>You have no items in the cart</li>
+<?php }?>
 
-                   
+                   <?php if($count!=0){?> 
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <div class="check-out">
@@ -284,7 +288,10 @@ function myFunction() {
                             </div>
                         </div>
                     </div>
-
+<?php } 
+    else {?>  
+    <script type="text/javascript">document.getElementById('total').style.display = 'none';</script>
+<?php }?>
 
 
 

@@ -1,6 +1,3 @@
-<?php include 'quotecall.php';?>
-<?php include 'insertquote.php';?>
-<?php $si=sizeof($quoteid);?>
 <?php session_start();
 
  if(!isset($_SESSION['user']))
@@ -10,6 +7,8 @@
               $name=$_SESSION['user'];
 
 ?>
+<?php include 'insertquote.php';?>
+
  <!DOCTYPE html>
  <html lang="en">
 
@@ -257,7 +256,7 @@
                         </div>
 
                         <div class="col-md-4">
-                            <label for="Total" style="color:tomato"><?php echo "$$totprice"?> </label>
+                            <label for="Total" style="color:tomato"><?php echo "$$tp"?> </label>
                         </div>
                     </div>
                     <div class="row">
@@ -272,7 +271,7 @@
                         </div>
 
                         <div class="col-md-4">
-                            <label for="Total" style="color:tomato"><?php echo "$$totprice"?> </label>
+                           <input type="hidden" name="totalprice" value="<?php echo "$$tp"?>"> <label for="Total" style="color:tomato"><?php echo "$$tp"?> </label>
                         </div>
 
                     </div>
@@ -288,7 +287,7 @@
                     </div>
 
 
-                    <button type="button" class="block" id="submit">Place Order</button>
+                    <button type="submit" name="placeorder"  class="block" id="submit">Place Order</button>
 
 
 

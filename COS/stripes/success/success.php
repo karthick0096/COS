@@ -8,9 +8,11 @@
 
 ?>
 <?php include 'insertquote.php';?>
-<?php include 'quotecall.php';?>
-<?php $li=sizeof($id);?>
-<?php $si=sizeof($quoteid);?>
+
+
+
+<?php include 'fetchadd.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,19 +33,19 @@
             <div class="row">
                 <div class="col-xl-2 col-md-2">
                     <div class="header-logo">
-                        <a href="index.html"><img src="images/logo.png" class="img-fluid logo" alt="logo" title="Codem Online Store" ></a>
+                        <a href="http://localhost/COS/stripes/success/delete.php"><img src="images/logo.png" class="img-fluid logo" alt="logo" title="Codem Online Store" ></a>
                     </div>
 
                 </div>
                 <div class="col-xl-10 col-md-10">
                     <div class="header-content">
                         <ul class="header-list float-left">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Shop</a></li>
+                            <li><a href="http://localhost/COS/stripes/success/delete.php">Home</a></li>
+                            <li><a href="http://localhost/COS/stripes/success/delete.php">Shop</a></li>
                         </ul>
                         <ul class="header-list float-right">
                             <li class="register"><a href="#"><?php echo "$name"?>'s Account</a></li>
-						<li class="login"><a href="../../logout.php">Logout</a></li>
+						<li class="login"><a href="delete2.php">Logout</a></li>
                             <li class="cart"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             <li class="menu"><a href="#"><i class="fa fa-bars"></i></a></li>
                         </ul>
@@ -136,7 +138,7 @@
     
 <div class="col-xs-3 ">
 <ul class="items-list float-left">
-<li><img src="<?php echo "$minipimage[$quoteid]"?>" width="55px" height="50px"/></li>
+<li><?php echo "<img src='../../catalog/images/".$minipimage[$quoteid]."' width='55px' height='50px' >";?></li>
 
    </ul>
 
@@ -236,7 +238,7 @@
 <div class="col-xs-8 col-xs-3 ">
 <ul class="items-list float-right">
 <li>Cart Subtotal</li>
-<li><?php echo "$$totprice"?></li>
+<li><?php echo "$$tp"?></li>
 </ul>
 </div>
 <br><hr>
@@ -268,7 +270,7 @@
 <div class="col-xs-8 col-xs-3 ">
 <ul class="items-list float-right">
 <li><b>Grand Total</b></li>
-<li><b><?php echo "$$totprice"?></b></li>
+<li><b><?php echo "$$tp"?></b></li>
 </ul>
 </div>
 <br><hr color="black" size="40">
@@ -283,33 +285,33 @@
 <br>
 
 <div class="address">
-    <?php for($id=0;$id<$li;$id++){ ?>
-<!--<table align="left">
-<tr><td padding-left="1.5em"><b>Martin Thomas</b></td></tr>
+  
+<table align="left">
+<tr><td padding-left="1.5em"><b><?php echo "$firstname"?><?php echo "$lastname"?></b></td></tr>
 <tr><td></td</tr>
-<tr><td>#341 castle bantagas</td></tr>
+<tr><td><?php echo "$address"?></td></tr>
 <tr><td></td</tr>
-<tr><td>Calaca barangay Barangay(3 pob)</td></tr>
+<tr><td><?php echo "$country"?></td></tr>
 <tr><td></td</tr>
-<tr><td>5285 Phillippines</td></tr>
+<tr><td><?php echo "$state"?></td></tr>
 <tr><td></td</tr>
-</table>-->
-<p><?php echo "$firstname[$id]"?></p><p><?php echo "$lastname[$id]"?></p>
-<p><?php echo "$country[$id]"?></p>
-<p><?php echo "$address[$id]"?></p>
-<p><?php echo "$town[$id]"?></p>
-    <p><?php echo "$state[$id]"?></p>
-    <p><?php echo "$postcode[$id]"?></p>
-    <p><?php echo "$phone[$id]"?></p>
-    <p><?php echo "$email[$id]"?></p>
+</table>
+<!--
+<p><?php echo "$firstname"?></p><p><?php echo "$lastname"?></p>
+<p><?php echo "$country"?></p>
+<p><?php echo "$address"?></p>
+<p><?php echo "$town"?></p>
+    <p><?php echo "$state"?></p>
+    <p><?php echo "$postcode"?></p>
+    <p><?php echo "$phone"?></p>
+    <p><?php echo "$email"?></p>-->
    
-    
- <?php } ?>
+
 </div>
 
 <br>
 <div>
-<button type="submit"formaction="http://localhost/COS/catalog/indexdum.php" class="btn-block">Continue Shopping</button>
+<button type="submit" formaction="delete.php" class="btn-block">Continue Shopping</button>
 </div>
 </form>
 </div>
