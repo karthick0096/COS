@@ -81,8 +81,9 @@
 <br>
 <hr>
 
-<div class="items">
-    <div class="row">
+
+   
+        <div class="items">
 
 <div class="col-xs-3 ">
 <ul class="items-list float-left">
@@ -99,7 +100,7 @@
 </ul>
 </div>
 </div>
-</div>
+
 <br>
 <hr>
 
@@ -128,18 +129,19 @@
 
 
 
-<div class="items">
-<div class="row">
+
+
+    <div class="items">
     <?php for($quoteid=0;$quoteid<$si;$quoteid++){ ?>
     
 <div class="col-xs-3 ">
 <ul class="items-list float-left">
-<li><?php echo "$minipimage[$quoteid]"?>"</li>
-</ul>
+<li><img src="<?php echo "$minipimage[$quoteid]"?>" width="55px" height="50px"/></li>
 
+   </ul>
 
 <li style="color:Lightgray"><?php echo "$minipname[$quoteid]"?></li>
-
+ 
 </div>
 
 
@@ -150,10 +152,10 @@
 <li><?php echo "$minipprice[$quoteid]"?></li>
 </ul>
 </div>
-    <?php } ?>
+   
 <br><hr>
-    
-</div>
+     <?php } ?>
+
     </div>
 
 <!--div class="items">
