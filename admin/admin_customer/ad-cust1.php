@@ -101,12 +101,12 @@ $si=sizeof($id);
             <div class="second float-right">
                 <div class="input-group mb-3 ">
                     <div class="input-group-prepend">
-                        <button type="button" class="btn btn-outline-secondary" style="width:50px">10</button>
-                        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-outline-secondary" style="width:110px">10 Per page</button>
+                        <!--<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <!--<span style="border-bottom: 40px">per page</span>-->
-                        <span style="margin-left: 20px">per page</span>
+                        </button>-->
+                        <!--<span style="border-bottom: 40px">per page</span>
+                        <span style="margin-left: 20px">per page</span>-->
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Edit</a>
                         </div>
@@ -120,7 +120,7 @@ $si=sizeof($id);
 
 
                     </div>-->
-                                   <div class="actionblock1">
+                                        <div class="actionblock1">
                         <?php 
     $servername = "localhost";
     $username = "root";
@@ -150,6 +150,8 @@ echo $pagLink . "</div>";
 ?>
 
 
+
+                    </div>
 
 
                 </div>
@@ -212,7 +214,7 @@ echo $pagLink . "</div>";
 
         </div>
 
-    </div>
+        </div></div>
 
 </body>
 

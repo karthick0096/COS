@@ -136,7 +136,7 @@ die("Connection failed: " . $conn->connect_error);
 
     
     
-$sql = "SELECT COUNT(id) FROM customer";  
+$sql = "SELECT COUNT(customerid) FROM customer";  
 $rs_result = mysqli_query($conn, $sql);  
 $row = mysqli_fetch_row($rs_result);  
 $total_records = $row[0];  
@@ -150,6 +150,8 @@ echo $pagLink . "</div>";
 ?>
 
 
+
+                    </div>
 
 
                 </div>
